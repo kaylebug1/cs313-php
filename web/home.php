@@ -15,7 +15,7 @@
     </div>
     <?php include 'nav.php' ;?>
     <div class="container-fluid">
-        <img src="me.jpg" alt="Picture of Kayle" style="width:180px; height:250px">
+        <img src="me.JPG" alt="Picture of Kayle" style="width:180px; height:250px">
         <h2>About Me...</h2>
         <h4>
             Hey Guys. My Name is Kayle Sillito. I am from Austin, Texas. I am a Software 
