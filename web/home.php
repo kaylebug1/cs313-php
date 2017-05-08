@@ -12,7 +12,7 @@
 
     <div class="jumbotron">
        <h1>Kayle Sillito</h1> 
-    </div>
+    </div> 
     <?php include 'nav.php' ;?>
     <div class="container-fluid">
         <img src="me.JPG" alt="Picture of Kayle" style="width:180px; height:250px">

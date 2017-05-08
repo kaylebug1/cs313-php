@@ -9,12 +9,11 @@
     <div class="jumbotron">
         <?php include 'nav.php' ;?>
     </div>
-    <h1> Coming soon</h1>
-    <!-- <div class="container-fluid">
-    <ul class='nav navbar-nav'>
-		<li><a href='assign02.php'>Home</a></li>
-		<li><a href='assign03.php'>Assignments</a></li>
-	</ul>
-    </div> -->
+    <h1>
+    <ul class="list-group">
+        <li class="list-group-item"><a href='store.php'>Prove 3 (Candy Cane Craze)</a></li>
+    </ul>
+    
+    </h1>
 </body>
 </html>
