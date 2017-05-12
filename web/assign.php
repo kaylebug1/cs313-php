@@ -11,7 +11,7 @@
     </div>
     <h1>
     <ul class="list-group">
-        <li class="list-group-item"><a href='store.php'>Prove 3 (Candy Cane Craze)</a></li>
+        <li class="list-group-item"><a href='/week3/store.php'>Prove 3 (Candy Cane Craze)</a></li>
     </ul>
     
     </h1>

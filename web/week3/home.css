@@ -1,0 +1,34 @@
+html{
+	padding-left: 20px;
+}
+.jumbotron{
+}
+.cane{
+	background-image: url("pic/caneBackground.jpg");
+	background-repeat: no-repeat;
+}
+.bottomcenter{
+	margin: auto;
+	position: relative;
+	bottom: 10%;
+}
+.cart{
+	position: absolute;
+	right: 10px;
+	top:10px;
+	background-image: url(pic/cart.png);
+}
+.list-group-item{
+	font-size: large;
+}
+a, a:link, a:hover, a:active{
+	color:black;
+}
+.pic{
+	width: 200px;
+	height: 200px;
+}
+.picSmall{
+	width: 100px;
+	height: 100px;
+}
