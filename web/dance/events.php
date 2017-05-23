@@ -1,9 +1,12 @@
 <?php
 
    try {
+      $db = getenv('DATABASE_URL');
+      if(empty($db)){
       $user = "postgres";
       $pass = "5825";
       $db = new PDO("pgsql:host=127.0.0.1;dbname=dances",$user,$pass);
+      }
    } catch (PDOException $ex) {
       echo "ERROR: ".$ex;
       die();
@@ -30,7 +33,7 @@
          JOIN dance d ON e.dance = d.id
          JOIN host h ON e.host = h.id;");
       	while ($row = $result->fetch(PDO::FETCH_ASSOC)) {?>
-         <p><?=$row['title']?> <br>Host: <?=$row['name']?><br>Date: <?=$row['day']?><br>Type: <?=$row['dance_type']?><br></p>
+         <p><?=$row['title']?> <br>Host: <?=$row['name']?><br>Date: <?=$row['day']?><br>Type:  <?=$row['dance_type']?><br></p>
       <?php } ?>
       </div>
 </body>
