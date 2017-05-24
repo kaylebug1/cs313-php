@@ -13,9 +13,9 @@
       $port = $dbopts["port"];
       $user = $dbopts["user"];
       $pass = $dbopts["pass"];
-      $dbName = ltrim($dbopts["path"],'/');
+      $name = ltrim($dbopts["path"],'/');
       
-      $db = new PDO("pgsql:host=$host;port=$port;dbname=dances",$user,$pass);
+      $db = new PDO("pgsql:host=$host;port=$port;dbname=$name",$user,$pass);
    } catch (PDOException $ex) {
       echo "ERROR: ".$ex;
       die();
