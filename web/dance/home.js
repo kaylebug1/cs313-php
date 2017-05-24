@@ -53,8 +53,6 @@ window.onload = function () {
 //             openDance();
 //             document.getElementById("form").reset();
 //        }
-
-    });
     
     /*function addSpacing(){
         var danceLocation = document.getElementById("dance");

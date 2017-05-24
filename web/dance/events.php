@@ -3,17 +3,25 @@
    try {
       $db = getenv('DATABASE_URL');
       if(empty($db)){
-      $user = "postgres";
-      $pass = "5825";
-      $db = new PDO("pgsql:host=127.0.0.1;dbname=dances",$user,$pass);
+         $db="postgres://postgres:5825@localhost:5432/dances";
       }
+
+      $dbopts = parse_url($db);
+
+
+      $host = $dbopts["host"];
+      $port = $dbopts["port"];
+      $user = $dbopts["user"];
+      $pass = $dbopts["pass"];
+      $dbName = ltrim($dbopts["path"],'/');
+      
+      $db = new PDO("pgsql:host=$host;port=$port;dbname=dances",$user,$pass);
    } catch (PDOException $ex) {
       echo "ERROR: ".$ex;
       die();
    }
 
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
