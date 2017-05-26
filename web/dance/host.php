@@ -4,12 +4,12 @@
     <title>Create an event</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="home.css">
-     <script src="home.js" type="text/javascript"></script>
+     <!-- <script src="home.js" type="text/javascript"></script> -->
 
 </head>
 <body>
     <?php include "nav.php" ;?>
-    <div id="create" style="">
+    <div id="create">
         <div id = "error"></div>
         <form id="form">
             <h1 style="color: red">Under construction!!!</h1>
