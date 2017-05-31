@@ -37,7 +37,6 @@
     <div id="create">
         <div id = "error"></div>
         <form id="form" method="get" action="addEvent.php">
-            <h1 style="color: red">Under construction!!!</h1>
             <div class=title>Event title </div>
             <input type="text" name="title"> <br><br>
 

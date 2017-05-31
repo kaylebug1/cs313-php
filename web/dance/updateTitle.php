@@ -57,7 +57,6 @@
    {?>
 
    <form id="form" method="get" action="saveTitle.php">
-      <h1 style="color: red">Under construction!!!</h1>
       <div class=title>Event title </div>
       <input type="text" id="titleNew" name="titleNew" value="<?=$title?>" > <br><br>
       <input type="hidden" name="title" value="<?=$title?>">

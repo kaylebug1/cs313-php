@@ -61,7 +61,6 @@
    <p>fb: <?=$facebook?> </p>
 
    <form id="form" method="get" action="saveHost.php">
-      <h1 style="color: red">Under construction!!!</h1>
        <!--Host information  -->
             <div id="hostSection">
             <div class="title"> Host of Event</div>
