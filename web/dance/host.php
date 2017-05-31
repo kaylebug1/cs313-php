@@ -1,3 +1,28 @@
+<?php
+
+   try {
+      $db = getenv('DATABASE_URL');
+      if(empty($db)){
+         $db="postgres://postgres:5825@localhost:5432/dances";
+      }
+
+      $dbopts = parse_url($db);
+
+
+      $host = $dbopts["host"];
+      $port = $dbopts["port"];
+      $user = $dbopts["user"];
+      $pass = $dbopts["pass"];
+      $name = ltrim($dbopts["path"],'/');
+      
+      $db = new PDO("pgsql:host=$host;port=$port;dbname=$name",$user,$pass);
+   } catch (PDOException $ex) {
+      echo "ERROR: ".$ex;
+      die();
+   }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,22 +36,64 @@
     <?php include "nav.php" ;?>
     <div id="create">
         <div id = "error"></div>
-        <form id="form">
+        <form id="form" method="get" action="addEvent.php">
             <h1 style="color: red">Under construction!!!</h1>
-            Event title: <br>
-            <input type="text" id="title"> <br>
-            Event time: <br>
-            <input type="text" id="time"><br>
-            Event day: <br>
-            <input type="date" id="date"><br>
-            Type of dance: <br>
-            <input type="text" id="type"><br>
-            <input type="button" id="creation" value="Create" >
+            <div class=title>Event title </div>
+            <input type="text" name="title"> <br><br>
+
+
+            <!--Host information  -->
+            <div id="hostSection">
+            <div class="title"> Host of Event</div>
+            <input type="text" name="host"><br>
+            <div class="title">Optional contact information for host:<br>
+            Facebook page <br></div>
+            <input type="text" name="facebook"><br>
+            <div class="title">Email <br></div>
+            <input type="email" name="email"><br>
+            <div class="title">Phone Number<br></div>
+            <input type="tel" name="phone">
+            </div>
+            <!-- <input type="button" onclick='' value="Add another host" name=""> -->
+            <br>
+            <br>
+            
+
+
+            <!--dance information  -->
+            <div class="title">Event time <br> </div>
+            <input type="time" name="time"><br>
+            <div class="title">Event day <br> </div>
+            <input type="date" name="date"><br>
+            <div class="title">Location <br> </div>
+            <input type="text" name="location"><br>
+
+
+            <br><div class="title">
+            Type of dance <br></div>
+            <?php
+            $statement = $db->prepare("SELECT dance_type,id FROM dance_selection");
+
+            $statement->execute();
+            // Go through each result
+            while ($row = $statement->fetch(PDO::FETCH_ASSOC))
+            {
+                // The variable "row" now holds the complete record for that
+                // row, and we can access the different values based on their
+                // name
+                $id =  $row['id'];
+                $name = $row['dance_type'];
+                echo "<input type='checkbox' name='types[]'' id='types$id' value='$id'>";
+                echo "<label for='types$id'>$name</label><br/>";  
+            }
+            ?>
+            <input type="checkbox" name="new" id='newType'>
+            <input type="text" name="typeText">
+
+            <!-- <input type="checkbox" id="type"><br> -->
+            <br>
+            <input type="submit" >
         </form>
-        <div id="location1" >
-        </div>
-        <div id="location2" >
-        </div>
     </div>
 
 

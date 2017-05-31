@@ -41,8 +41,13 @@
          JOIN dance d ON e.dance = d.id
          JOIN host h ON e.host = h.id;");
       	while ($row = $result->fetch(PDO::FETCH_ASSOC)) {?>
-         <p><?=$row['title']?> <br>Host: <?=$row['name']?><br>Date: <?=$row['day']?><br>Type:  <?=$row['dance_type']?><br></p>
-      <?php } ?>
-      </div>
+         <div class="bottomBorder">
+         <p><?=$row['title']?> <br>Host: <?=$row['name']?><br>Date: <?=$row['day']?><br>Type:  <?=$row['dance_type']?> <br></p><div class="hidden">
+         <?= $title = $row['title']; $name= $row['name']; ?></div>
+         <a class="floatRight" href="updateTitle.php?title=<?=$title?>">Update Title</a><br>
+         <a class="floatRight" href="updateHost.php?host=<?=$name?>">Update Host</a>
+         </div>
+   <?php } ?>
+   </div>
 </body>
 </html>

@@ -5,6 +5,7 @@ body, html {
     margin-left: 20px;
     padding-top: 80px;
     position: relative;
+    padding-bottom: 20px
 }
 header{
     font-style: italic;
@@ -43,7 +44,7 @@ footer{
 }
 form{
     position: relative;
-    font-size: 30px;
+    font-size: 25px;
 }
 input{
     font-size: 20px;
@@ -71,6 +72,17 @@ input{
 a{
     color: black;
 }
-ul{
-
+.title{
+    font-size: 30px;
+}
+.floatRight{
+    position: relative;
+    float: right;
+}
+.bottomBorder{
+    position: relative;
+    border-bottom: 6px solid black;
+}
+.hidden{
+    visibility: hidden;
 }
