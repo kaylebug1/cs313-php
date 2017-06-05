@@ -86,3 +86,14 @@ a{
 .hidden{
     visibility: hidden;
 }
+#log{
+    font-size: 20px;
+    position: absolute;
+    top: 5px;
+    right: 15px;
+}
+#update{
+position: absolute;
+top: 5px;
+right: 20px;
+}

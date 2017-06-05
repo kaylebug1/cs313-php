@@ -21,19 +21,24 @@ try {
       die();
    }
 
+   
 
 
 
-
-$titleNew = $_GET['titleNew'];
-$title = $_GET['title'];
-$query ="Update event SET title=:titleNew WHERE event.title= :title";  
+$time = $_GET['time'];
+$date = $_GET['date'];
+$location =$_GET['location'];
+$newLocation=$_GET['newLocation'];
+$query ="Update dance SET time=:time, day=:date, location=:newLocation WHERE dance.location=:location";  
          $statement = $db->prepare($query);
-         $statement->bindValue(':title', $title);
-         $statement->bindValue(':titleNew', $titleNew);
+         $statement->bindValue(':time', $time);
+         $statement->bindValue(':date', $date);
+         $statement->bindValue(':location', $location);
+         $statement->bindValue(':newLocation', $newLocation);
          $statement->execute();
 
 header("Location: home.php");
+
 die();
 
 ?>

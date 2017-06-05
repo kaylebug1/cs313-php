@@ -1,4 +1,5 @@
 <?php
+   session_start();
 
    try {
       $db = getenv('DATABASE_URL');
@@ -27,6 +28,13 @@ $person = $_GET['host'];
 $facebook = $_GET['facebook'];
 $email = $_GET['email'];
 $phone = $_GET['phone'];
+$dancer = $_SESSION['id'];
+
+$_SESSION['host_name'] = $person;
+$_SESSION['facebook'] = $facebook;
+$_SESSION['email'] = $email;
+$_SESSION['phone'] = $phone;
+
 
 echo "host: $person\n";
 echo "fb: $facebook\n";
@@ -34,7 +42,7 @@ echo "email: $email\n";
 echo "phone: $phone\n";
 
 try{
-   $query = 'INSERT INTO host(name, facebook, email, phone) VALUES (:name, :facebook, :email, :phone)';
+   $query = 'INSERT INTO host(host_name, facebook, email, phone, dancer ) VALUES (:name, :facebook, :email, :phone, :id)';
 
    $statement = $db->prepare($query);
 
@@ -42,6 +50,7 @@ try{
    $statement->bindValue(':facebook',$facebook);
    $statement->bindValue(':email',$email);
    $statement->bindValue(':phone',$phone);
+   $statement->bindValue(':id', $dancer);
 
    echo("$query");
    $statement->execute();
@@ -104,6 +113,7 @@ foreach ($danceTypes as $type) {
    echo("$query");
    $statement->execute();
 }
-
+header("Location:home.php");
+die();
 
 ?>

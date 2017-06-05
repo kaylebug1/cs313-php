@@ -1,5 +1,5 @@
 <?php
-
+  session_start();
    try {
       $db = getenv('DATABASE_URL');
       if(empty($db)){
@@ -21,6 +21,11 @@
       die();
    }
 
+$person = $_SESSION['host_name'];
+$facebook = $_SESSION['facebook'];
+$email = $_SESSION['email'];
+$phone = $_SESSION['phone'];
+
 ?>
 
 <!DOCTYPE html>
@@ -34,6 +39,7 @@
 </head>
 <body>
     <?php include "nav.php" ;?>
+    <?php { ?>
     <div id="create">
         <div id = "error"></div>
         <form id="form" method="get" action="addEvent.php">
@@ -44,14 +50,19 @@
             <!--Host information  -->
             <div id="hostSection">
             <div class="title"> Host of Event</div>
-            <input type="text" name="host"><br>
+
+            <input type="text" name="host" value="<?=
+            $person?>"><br>
             <div class="title">Optional contact information for host:<br>
             Facebook page <br></div>
-            <input type="text" name="facebook"><br>
+            <input type="text" name="facebook" value="<?=
+            $facebook?>"><br>
             <div class="title">Email <br></div>
-            <input type="email" name="email"><br>
+            <input type="email" name="email" value="<?=
+            $email?>"><br>
             <div class="title">Phone Number<br></div>
-            <input type="tel" name="phone">
+            <input type="tel" name="phone" value="<?=
+            $phone?>">
             </div>
             <!-- <input type="button" onclick='' value="Add another host" name=""> -->
             <br>
@@ -71,6 +82,7 @@
             <br><div class="title">
             Type of dance <br></div>
             <?php
+            }
             $statement = $db->prepare("SELECT dance_type,id FROM dance_selection");
 
             $statement->execute();

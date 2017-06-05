@@ -1,6 +1,6 @@
 <?php
 
-try {
+   try {
       $db = getenv('DATABASE_URL');
       if(empty($db)){
          $db="postgres://postgres:5825@localhost:5432/dances";
@@ -21,19 +21,12 @@ try {
       die();
    }
 
-
-
-
-
-$titleNew = $_GET['titleNew'];
-$title = $_GET['title'];
-$query ="Update event SET title=:titleNew WHERE event.title= :title";  
+    $host = $_GET["event"];
+      $query ="DELETE FROM event WHERE event.title = :title";
          $statement = $db->prepare($query);
-         $statement->bindValue(':title', $title);
-         $statement->bindValue(':titleNew', $titleNew);
-         $statement->execute();
-
-header("Location: home.php");
-die();
+         $statement->bindValue(':title', $host);
+         $statement->execute(); 
+   header("Location:home.php")
 
 ?>
+

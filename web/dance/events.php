@@ -36,16 +36,15 @@
    <div id="main" >
 	<?php
       $result = $db->query("
-         SELECT dance_type, day, location, title, name FROM event e
+         SELECT dance_type, day, location, title, host_name, time FROM event e
          JOIN dance_selection ds ON e.dance_selection = ds.id
          JOIN dance d ON e.dance = d.id
          JOIN host h ON e.host = h.id;");
       	while ($row = $result->fetch(PDO::FETCH_ASSOC)) {?>
          <div class="bottomBorder">
-         <p><?=$row['title']?> <br>Host: <?=$row['name']?><br>Date: <?=$row['day']?><br>Type:  <?=$row['dance_type']?> <br></p><div class="hidden">
+         <p><?=$row['title']?> <br>Host: <?=$row['host_name']?><br>Date: <?=$row['day']?><br>Time: <?=$row['time']?><br>Type:  <?=$row['dance_type']?> <br></p><div class="hidden">
          <?= $title = $row['title']; $name= $row['name']; ?></div>
-         <a class="floatRight" href="updateTitle.php?title=<?=$title?>">Update Title</a><br>
-         <a class="floatRight" href="updateHost.php?host=<?=$name?>">Update Host</a>
+         
          </div>
    <?php } ?>
    </div>

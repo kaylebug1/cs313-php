@@ -1,6 +1,6 @@
 <?php
 
-try {
+   try {
       $db = getenv('DATABASE_URL');
       if(empty($db)){
          $db="postgres://postgres:5825@localhost:5432/dances";
@@ -21,19 +21,18 @@ try {
       die();
    }
 
+   $name = $_POST['name'];
+   $username = $_POST['username'];
+   $password = $_POST['password'];
+   $passwordHash= password_hash($password, PASSWORD_DEFAULT);
 
+   $statment= $db->prepare('INSERT INTO dancer (name, username, password) VALUES (:name, :user, :pass)');
 
+   $statment->bindParam(':name', $name);
+   $statment->bindParam(':user', $username);
+   $statment->bindParam(':pass', $passwordHash);
+   $statment->execute();
 
-
-$titleNew = $_GET['titleNew'];
-$title = $_GET['title'];
-$query ="Update event SET title=:titleNew WHERE event.title= :title";  
-         $statement = $db->prepare($query);
-         $statement->bindValue(':title', $title);
-         $statement->bindValue(':titleNew', $titleNew);
-         $statement->execute();
-
-header("Location: home.php");
-die();
-
-?>
+   header("Location: signIn.php");
+   die();
+   ?>

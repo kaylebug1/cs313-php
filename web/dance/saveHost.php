@@ -39,7 +39,7 @@ $query ="Update host SET name=:hostNew, facebook=:fb, email=:email, phone=:phone
          $statement->bindValue(':phone', $phoneNew);
          $statement->execute();
 
-header("Location: events.php");
+header("Location: home.php");
 
 die();
 
